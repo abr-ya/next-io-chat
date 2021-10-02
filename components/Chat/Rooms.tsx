@@ -28,10 +28,32 @@ const RoomsContainer = () => {
     socket.emit(EVENTS.CLIENT.JOIN_ROOM, key);
   }
 
+  const toLobbyHandler = () => {
+    socket.emit(EVENTS.MASTER.TO_LOBBY);
+  }
+  const toGameHandler = () => {
+    socket.emit(EVENTS.MASTER.TO_GAME);
+  }
+  const toResultHandler = () => {
+    socket.emit(EVENTS.MASTER.TO_RESULT);
+  }
+
   return (
     <nav className={styles.wrapper}>
       <div className={styles.createRoomWrapper}>
         <Server />
+      </div>
+      <div className={styles.createRoomWrapper}>
+        здесь будут кнопки для тестов:
+        <button className="cta" onClick={toLobbyHandler}>
+          TO LOBBY
+        </button>
+        <button className="cta" onClick={toGameHandler}>
+          TO GAME
+        </button>
+        <button className="cta" onClick={toResultHandler}>
+          TO RESULT
+        </button>
       </div>
       <div className={styles.createRoomWrapper}>
         <input ref={newRoomRef} placeholder="Room name" />

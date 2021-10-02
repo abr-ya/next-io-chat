@@ -34,4 +34,5 @@ button {
 button.cta {
   background-color: blueviolet;
   white-space: nowrap;
+  margin-top: 10px;
 }
